@@ -80,8 +80,7 @@
     <img src="<?php echo validate_image($_settings->info('logo')) ?>" alt="Store Logo"
       class="brand-image img-circle elevation-3 bg-white"
       style="width: 1.8rem;height: 1.8rem;max-height: unset;object-fit:scale-down;object-position:center center">
-    <span><img src=" <?php echo validate_image($_settings->info('logo_name')) ?>"
-        style="width: 200px; height: 120px; margin-left: -35px; margin-top: -45px;"></span>
+    <span class="brand-text font-weight-light"><?php echo $_settings->info('short_name') ?></span>
   </a>
 
   <!-- Sidebar Section -->
@@ -138,7 +137,6 @@
 
         <!-- Admin Maintenance Section -->
         <?php if ($_settings->userdata('type')): ?>
-          <li class="nav-header">Maintenance</li>
           <!-- Departments -->
           <li class="nav-item">
             <a href="<?php echo base_url ?>admin/?page=departments" class="nav-link nav-departments">

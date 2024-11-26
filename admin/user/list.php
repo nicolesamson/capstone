@@ -26,8 +26,7 @@
 		<h2 class="card-title"><b> List of System Users</b></h2>
 		<div class="card-tools">
 			<!-- Button to create a new user -->
-			<a href="?page=user/manage_user" class="btn btn-flat btn-primary"
-				style="border-radius: 3px; padding: 5px 7px;">
+			<a href="?page=user/manage_user" class="btn btn-flat btn-sm btn-primary" style="border-radius: 3px;">
 				<span class="fas fa-plus"></span> Create New
 			</a>
 		</div>
