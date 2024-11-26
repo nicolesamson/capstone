@@ -167,8 +167,16 @@
 
         <?php endif; ?>
 
+        <?php if ($_settings->userdata('id') > 0 && in_array($_settings->userdata('type'), [1, 2])): ?>
+          <!-- Show Dashboard link for Administrator and Staff -->
+          <li class="nav-item">
+            <a href="./admin" class="nav-link <?= isset($page) && $page == 'projects' ? "active" : "" ?>">Dashboard</a>
+          </li>
+        <?php endif; ?>
+
+
+
         <?php if ($_settings->userdata('id') > 0): ?>
-          <!-- If logged in, show additional menu items like Profile and Submit Thesis -->
           <li class="nav-item">
             <a href="./?page=projects"
               class="nav-link <?= isset($page) && $page == 'projects' ? "active" : "" ?>">Projects</a>
@@ -203,7 +211,7 @@
           </li>
           <li class="nav-item">
             <a href="./?page=submit-archive"
-              class="nav-link <?= isset($page) && $page == 'submit-archive' ? "active" : "" ?>">Submit Thesis/Capstone</a>
+              class="nav-link <?= isset($page) && $page == 'submit-archive' ? "active" : "" ?>">Submit File</a>
           </li>
         <?php endif; ?>
       </ul>
@@ -215,7 +223,8 @@
 <nav class="bg-navy w-100 px-2 py-1 position-fixed top-0" id="login-nav">
   <div class="d-flex justify-content-between w-100">
     <div>
-      <span class="mr-2 text-white"><i class="fa fa-map-marker mr-1"></i> <?= $_settings->info('address') ?></span>
+      <span class="mr-2 text-white"><i class="fa fa-map-marker mr-1"></i>
+        <?= $_settings->info('address') ?></span>
       <span class="mr-2 text-white"><i class="fa fa-phone mr-1"></i> <?= $_settings->info('contact') ?></span>
       <span class="mr-2 text-white"><i class="fa fa-envelope mr-1"></i> <?= $_settings->info('email') ?></span>
     </div>
@@ -223,7 +232,8 @@
       <?php if ($_settings->userdata('id') > 0): ?>
         <span class="mx-2"><img src="<?= validate_image($_settings->userdata('avatar')) ?>" alt="User Avatar"
             id="student-img-avatar"></span>
-        <span class="mx-2">Hello, <?= $_settings->userdata('firstname') ?: $_settings->userdata('username') ?></span>
+        <span class="mx-2">Hello,
+          <?= $_settings->userdata('firstname') ?: $_settings->userdata('username') ?></span>
         <span class="mx-1"><a href="<?= base_url . 'classes/Login.php?f=student_logout' ?>"><i
               class="fa fa-power-off"></i></a></span>
       <?php endif; ?>
